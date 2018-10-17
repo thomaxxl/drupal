@@ -1,0 +1,19 @@
+.auth--profile-page {
+  display: flex;
+}
+
+.auth--profile {
+  background: #ffffff;
+  padding: 25px;
+  margin-right: 25px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+
+  .profile--name {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,50 @@
+
+@import "../scss/variables";
+.auth--box {
+  padding: 20px;
+  color: #455a64;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 3px;
+
+  h3 {
+    font-size: 20px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    outline: none;
+    font-size: 14px;
+
+    &:focus {
+      border-bottom: 1px solid $bartik-blue;
+    }
+  }
+
+  button {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .auth--text {
+text-align: center;
+
+    a {
+      color: $bartik-blue;
+      transition: color .2s ease-in-out;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($bartik-blue, 10%);
+        text-decoration: underline;
+      }
+
+      &:visited {
+        color: $bartik-blue;
+      }
+    }
+  }
+}

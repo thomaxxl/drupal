@@ -1,0 +1,55 @@
+export const LOAD_MENU = 'LOAD_MENU'
+export const SUCCESS = '_SUCCESS'
+export const FAIL = '_FAIL'
+export const START = '_START'
+
+export const GET_CSRF_TOKEN = 'GET_CSRF_TOKEN'
+export const TOKEN = 'TOKEN'
+
+export const REGISTER_USER = 'REGISTER_USER'
+export const REGISTER = 'REGISTER'
+
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+
+export const FETCH_USER = 'FETCH_USER'
+
+export const LOAD_ARTICLES = 'LOAD_ARTICLES'
+
+export const THEME_SETTINGS = 'THEME_SETTINGS'
+
+export const LOAD_COMMENTS = 'LOAD_COMMENTS'
+
+export const LOAD_PAGE = 'LOAD_PAGE'
+
+export const SUBMIT_CONTACT_FORM = 'SUBMIT_CONTACT_FORM'
+
+export const LOAD_CONTENT = 'LOAD_CONTENT'
+export const ADD_CONTENT = 'ADD_CONTENT'
+export const UPDATE_CONTENT = 'UPDATE_CONTENT'
+export const DELETE_CONTENT = 'DELETE_CONTENT'
+
+export const LOAD_USERS = 'LOAD_USERS'
+export const ADD_USER = 'ADD_USER'
+export const UPDATE_USER = ' UPDATE_USER'
+export const DELETE_USER = 'DELETE_USER'
+
+export const TOGGLE_NOTIFICATION_BAR = 'TOGGLE_NOTIFICATION_BAR'
+export const ADD_TOAST = 'ADD_TOAST'
+export const REMOVE_TOAST = 'REMOVE_TOAST'
+
+export const LOAD_CLIENTS = 'LOAD_CLIENTS'
+export const ADD_CLIENT = 'ADD_CLIENT'
+export const UPDATE_CLIENT = 'UPDATE_CLIENT'
+export const DELETE_CLIENT = 'DELETE_CLIENT'
+
+export const LOAD_ALL_COMMENTS = 'LOAD_ALL_COMMENTS'
+export const ADD_COMMENT = 'ADD_COMMENT'
+export const UPDATE_COMMENT = 'UPDATE_COMMENT'
+export const DELETE_COMMENT = 'DELETE_COMMENT'
+
+export const LOAD_DASHBOARD_STATS = 'LOAD_DASHBOARD_STATS'
+export const SET_LANG = 'SET_LANG'
+export const LOAD_RECENT_CONTENT = 'LOAD_RECENT_CONTENT'
+export const LOAD_BANNER = 'LOAD_BANNER'
+export const INVERSE_THEME_COLOR = 'INVERSE_THEME_COLOR'

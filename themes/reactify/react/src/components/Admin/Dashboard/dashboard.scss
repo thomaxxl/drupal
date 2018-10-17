@@ -1,0 +1,117 @@
+@import '../../scss/variables.scss';
+
+.auth--layout-container {
+  display: flex;
+  flex: 1 1 auto;
+  padding-top: 50px;
+}
+
+.auth--header {
+  display: flex;
+  background-color: $bartik-blue;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.auth--navbar {
+  display: flex;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.auth-profile-nav {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+
+  span {
+    margin-left: 25px;
+    display: inline-block;
+    color: #ffffff;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+}
+
+.auth-main-nav {
+  a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
+.auth--main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin-left: 250px;
+  transition: margin-left .3s ease-in-out;
+
+  &.with-mini-sidebar {
+    margin-left: 60px;
+  }
+}
+
+.auth--main {
+  background-color: rgba(#cccccc, 0.15);
+  padding: 40px 50px;
+  flex: 1 1 auto;
+}
+/*
+ * Dashboard stats styles.
+ */
+.auth--dashboard-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .stats-icon {
+    font-size: 1.5em;
+    color: $bartik-blue;
+    margin-right: 20px;
+  }
+
+  .stats-number {
+    display: block;
+    color: #000;
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
+.auth--dashboard-stat {
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: $border-radius;
+}
+
+.auth--branding {
+  display: flex;
+  //justify-content: space-around;
+  align-items: center;
+  flex: 250px 0 0;
+  padding: 5px 20px;
+  background-color: #fff;
+  transition: flex .3s ease-in-out;
+
+  &.minified {
+    flex: 60px 0 0;
+    padding: 5px 10px;
+  }
+}
+
+.logo {
+  img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+  }
+}

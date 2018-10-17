@@ -1,0 +1,7 @@
+react:
+  version: VERSION
+  css:
+    theme:
+      build/bundle.css: {}
+  js:
+    build/bundle.js: {}

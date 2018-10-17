@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @file
+ * Theming functions for Reactify theme.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implemets hook_form_system_theme_settings_alter() for adding theme settings.
+ *
+ * {@inheritdoc}
+ */
+function reactify_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state, $form_id = NULL) {
+  if (isset($form_id)) {
+    return;
+  }
+
+  // List of nodes to display in drop down select.
+  $nodes = Node::loadMultiple();
+  $options = [];
+
+  /**
+   * @param array $array
+   *   Array to push into.
+   * @param string $key
+   *   Array key.
+   * @param string $value
+   *   Array value.
+   *
+   * @return array
+   *   Return associative array.
+   */
+  function array_push_assoc(array $array, $key, $value) {
+    $array[$key] = $value;
+    return $array;
+  }
+
+  foreach ($nodes as $node) {
+    $id = $node->id();
+    $title = $node->title->value;
+    $options = array_push_assoc($options, $id, $title);
+  }
+
+  // Blocks.
+  $blocks = BlockContent::loadMultiple();
+  $block_options = [];
+
+  foreach ($blocks as $block) {
+
+    $id = $block->id();
+    $block_options = array_push_assoc($block_options, $id, $id);
+  }
+
+  $form['full_width'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Full width'),
+    '#default_value' => theme_get_setting('full_width'),
+    '#description' => t('Use full width'),
+  ];
+
+  $form['front_page'] = [
+    '#type' => 'select',
+    '#title' => t('Front page'),
+    '#options' => [
+      $options,
+    ],
+    '#default_value' => theme_get_setting('front_page'),
+    '#description' => t('Please select front page.'),
+  ];
+
+  $form['about_page'] = [
+    '#type' => 'select',
+    '#title' => t('About page'),
+    '#options' => [
+      $options,
+    ],
+    '#description' => t('Select about page'),
+    '#default_value' => theme_get_setting('about_page'),
+  ];
+
+  $form['banner_block'] = [
+    '#type' => 'select',
+    '#title' => t('Banner block'),
+    '#description' => t('Please select block content for the banner'),
+    '#default_value' => theme_get_setting('banner_block'),
+    '#options' => [
+      $block_options,
+    ],
+  ];
+
+  // Reactify layout settings.
+  $form['layout'] = [
+    '#type' => 'details',
+    '#title' => t('Layout settings'),
+    '#tree' => TRUE,
+  ];
+
+  $form['layout']['show_header'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show header'),
+    '#default_value' => theme_get_setting('layout.show_header'),
+  ];
+
+  $form['layout']['show_banner'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show banner'),
+    '#default_value' => theme_get_setting('layout.show_banner'),
+  ];
+
+  $form['layout']['show_sidebar'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show sidebar'),
+    '#default_value' => theme_get_setting('layout.show_sidebar'),
+  ];
+
+  $form['layout']['show_footer'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show footer'),
+    '#default_value' => theme_get_setting('layout.show_footer'),
+  ];
+
+  $form['layout']['sidebar_position'] = [
+    '#type' => 'radios',
+    '#title' => t('Sidebar position'),
+    '#default_value' => theme_get_setting('layout.sidebar_position'),
+    '#options' => [
+      'left' => t('Left'),
+      'right' => t('Right'),
+    ],
+  ];
+
+  // Text settings.
+  $form['theme_text'] = [
+    '#type' => 'details',
+    '#title' => t('Theme text'),
+    '#tree' => TRUE,
+  ];
+
+  $form['theme_text']['footer_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Footer text'),
+    '#default_value' => theme_get_setting('theme_text.footer_text'),
+  ];
+
+  // Module dependent variables.
+  $form['dashboard'] = [
+    '#type' => 'details',
+    '#title' => t('Dashboard settings'),
+    '#tree' => TRUE,
+  ];
+
+  $form['dashboard']['show_dashboard_stats'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show Dashboard statistics'),
+    '#default_value' => theme_get_setting('dashboard.show_dashboard_stats'),
+  ];
+
+  /**
+   * Helper function to check whether module exists.
+   *
+   * @param string $module
+   *   Machine name of a module.
+   *
+   * @return bool
+   *   Defines whether module exists.
+   */
+  function module_exist($module) {
+    if (\Drupal::moduleHandler()->moduleExists($module) === TRUE) {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
+  if (!module_exist('reactify_dashboard_stats')) {
+
+    // Disable dashboard statistics setting if it was enabled.
+    $config_factory = \Drupal::configFactory();
+    $config = $config_factory->getEditable('reactify.settings');
+    $config->set('dashboard.show_dashboard_stats', 0);
+    $config->save(TRUE);
+
+    $form['dashboard']['show_dashboard_stats']['#disabled'] = TRUE;
+    $form['dashboard']['show_dashboard_stats']['#description'] =
+      t('Please enable "Reactify Dashboard statistics" module for enabling this setting.');
+  }
+
+}

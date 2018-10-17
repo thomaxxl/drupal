@@ -1,0 +1,23 @@
+name: Reactify
+description: React & Redux powered Drupal theme
+type: theme
+# core: 8.x
+base theme: false
+libraries:
+  - reactify/react
+libraries-override:
+  system/base: false
+  core/drupal: false
+  core/drupalSettings: false
+  core/drupal.active-link: false
+  core/html5shiv: false
+  core/jquery: false
+  core/jquery.once: false
+  core/jquery.ui: false
+  toolbar/toolbar: false
+
+# Information added by Drupal.org packaging script on 2018-08-29
+version: '8.x-1.0'
+core: '8.x'
+project: 'reactify'
+datestamp: 1535527385

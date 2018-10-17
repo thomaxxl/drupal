@@ -1,0 +1,26 @@
+.donutchart {
+
+}
+
+.donutchart-track{
+  fill: transparent;
+  stroke: #DAE2E5;
+  stroke-width: 26;
+}
+
+.donutchart-indicator {
+  fill: transparent;
+  stroke: #009688;
+  stroke-width: 26;
+  stroke-dasharray: 0 10000;
+  transition: stroke-dasharray .3s ease;
+}
+
+// Line Chart.
+.linechart--path {
+  stroke-width: 3; // Thick Line
+  fill: none;      // No Fill
+}
+.linechart--axis {
+  stroke: #bdc3c7; // Grey Axis Color
+}

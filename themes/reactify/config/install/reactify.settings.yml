@@ -1,0 +1,12 @@
+full_width:  true
+front_page: ''
+layout:
+  show_header: 1
+  show_banner: 1
+  show_sidebar: 1
+  show_footer: 1
+  sidebar_position: left
+theme_text:
+  footer_text: 'Powered by Reactify Theme'
+dashboard:
+  show_dashboard_stats: 0

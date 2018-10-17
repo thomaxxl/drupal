@@ -1,0 +1,24 @@
+@import '../scss/variables';
+
+.empty-layout--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(#cccccc, 0.15);
+  position: relative;
+
+  .empty-layout--back {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+
+    a {
+      display: flex;
+      color: $dark-gray;
+      align-items: center;
+      text-decoration: none;
+
+    }
+  }
+}

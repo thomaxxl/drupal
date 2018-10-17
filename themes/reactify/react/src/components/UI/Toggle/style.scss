@@ -1,0 +1,47 @@
+@import '../../scss/variables';
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 58px;
+  height: 32px;
+
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    transition: .4s;
+
+    &:before {
+      position: absolute;
+      content: '';
+      height: 30px;
+      width: 30px;
+      top: 0px;
+      left: 0px;
+      background-color: $gray;
+      border-radius: 50%;
+      transition: .3s;
+    }
+  }
+  input {
+    display: none;
+
+    &:checked {
+      & + .toggle-slider
+      {
+        &:before {
+          transform: translateX(26px);
+          background-color: $bartik-blue;
+        }
+      }
+    }
+  }
+
+}

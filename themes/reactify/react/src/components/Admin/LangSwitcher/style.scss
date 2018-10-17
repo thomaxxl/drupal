@@ -1,0 +1,30 @@
+.lang-switcher {
+  position: relative;
+  cursor: pointer;
+
+  &--items {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    margin: 0;
+    padding: 10px;
+    display: none;
+    list-style-type: none;
+    background: #ffffff;
+    box-shadow: 0 2px 6px 3px rgba(0,0,0,.15);
+    border-radius: 2px;
+
+    li {
+      padding: 3px;
+      display: inline-block;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+}
